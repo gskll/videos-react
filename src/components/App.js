@@ -7,6 +7,11 @@ import VideoDetail from "./VideoDetail";
 class App extends React.Component {
   state = { videos: [], selectedVideo: null };
 
+  componentDidMount() {
+    // Set default search term
+    this.onTermSubmit("django python");
+  }
+
   onTermSubmit = async (term) => {
     const response = await youtube.get("/search", {
       params: {
